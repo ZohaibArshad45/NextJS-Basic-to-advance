@@ -20,6 +20,7 @@ export default function Home() {
         <Button><Link href="/learnLinkNavigation">Learn about Link and Navigation</Link></Button>
         <Button><Link href="/profile">Profile Page Nested Routing</Link></Button>
         <Button onClick={()=> navLink('/employee')}>Learn About Dynamic Routes</Button>
+        <Button onClick={()=> navLink('/blog')}>Learn Catch All Page</Button>
 
       </div>
 
