@@ -21,6 +21,7 @@ export default function Home() {
         <Button><Link href="/profile">Profile Page Nested Routing</Link></Button>
         <Button onClick={()=> navLink('/employee')}>Learn About Dynamic Routes</Button>
         <Button onClick={()=> navLink('/blog')}>Learn Catch All Page</Button>
+        <Button onClick={()=> navLink('/notfound')}>Learn about 404 Error </Button>
 
       </div>
 

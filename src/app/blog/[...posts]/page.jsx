@@ -19,6 +19,7 @@ const CatchAll = ({ params }) => {
                 <h2>📅 Year: <span className="text-blue-500">{posts[4] || "N/A"}</span></h2>
                 <h2>📅 more: <span className="text-blue-500">{posts[5] || "N/A"}</span></h2>
             </div>
+
         </div>
     )
 }
