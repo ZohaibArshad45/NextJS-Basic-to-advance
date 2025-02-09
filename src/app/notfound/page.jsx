@@ -22,7 +22,7 @@ const PageNot = () => {
       <Button onClick = {()=>linkHandle('KuchBhi')}>For check</Button>
 
       <br /><br />
-      <p>For specfic route Error we can use catch all like folder name [...kuchbr=hai] <br />
+      <p>For specfic route Error we can use catch all like folder name [...kuchbhihai] <br />
       the we make page.jsx and design like error</p>
     </div>
 

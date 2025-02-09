@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div className="main flex flex-col items-center justify-center pt-6">
-      <h1>Home Page</h1>
+      <h1 className="font-bold text-red-800 text-2xl m-3">Home Page</h1>
       <div className="links flex flex-col gap-3">
         <Button><Link href="/learnEventFunctionStates">Learn Event Function and State</Link></Button>
         <Button><Link href="/learnLinkNavigation">Learn about Link and Navigation</Link></Button>
@@ -22,6 +22,7 @@ export default function Home() {
         <Button onClick={()=> navLink('/employee')}>Learn About Dynamic Routes</Button>
         <Button onClick={()=> navLink('/blog')}>Learn Catch All Page</Button>
         <Button onClick={()=> navLink('/notfound')}>Learn about 404 Error </Button>
+        <Button onClick={()=> navLink('/middle')}>Learn about middleware </Button>
 
       </div>
 
