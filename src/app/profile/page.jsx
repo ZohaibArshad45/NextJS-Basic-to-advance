@@ -19,6 +19,7 @@ const ProfilePage = () => {
             <p>For Example</p>
             <Button onClick={() => { navLink('/profile/shoaib') }}>Shoaib</Button>
             <Button onClick={() => { navLink('/profile/zohaib') }}>Zohaib</Button>
+            <Button onClick={() => { navLink('/profile/arslan') }}>Arslan</Button>
 
             <br /><br />
 
