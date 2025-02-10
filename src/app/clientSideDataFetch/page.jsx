@@ -20,7 +20,8 @@ const ClientSideDataFetch = () => {
             <pre>
                 1) First we made it client side by 'use Client' <br />
                 2) import useState  <br />
-                3) useEffect == ek call back lata ha == phr is ky andr ek function bana data Fetch krny ky lia <br />
+                3) useEffect == ek call back lata ha == <br />
+                    phr is ky andr ek function bana data Fetch krny ky lia <br />
                 4) phr next map use kr ky data Render kr lo <br /><br /><br />
                 
 
