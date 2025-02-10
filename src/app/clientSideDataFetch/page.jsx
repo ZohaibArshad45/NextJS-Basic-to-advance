@@ -48,7 +48,7 @@ export default ClientSideDataFetch
 // async function getData() {
 //     let Data = await fetch('https://jsonplaceholder.typicode.com/albums')
 //     let newdata = await Data.json()
-//     return newdata
+//     return newdata //data return krna pary ga yaha
 // }
 
 // const ClientSideDataFetch = () => {
