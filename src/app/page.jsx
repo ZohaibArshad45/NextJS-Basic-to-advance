@@ -23,6 +23,7 @@ export default function Home() {
         <Button onClick={()=> navLink('/blog')}>Learn Catch All Page</Button>
         <Button onClick={()=> navLink('/notfound')}>Learn about 404 Error </Button>
         <Button onClick={()=> navLink('/middle')}>Learn about middleware </Button>
+        <Button onClick={()=> navLink('/clientSideDataFetch')}>Learn Client Side Data Fetch API </Button>
 
       </div>
 
