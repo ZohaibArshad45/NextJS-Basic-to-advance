@@ -26,6 +26,7 @@ export default function Home() {
         <Button onClick={()=> navLink('/clientSideDataFetch')}>Learn Client Side Data Fetch API </Button>
         <Button onClick={()=> navLink('/ServerSiderDataFetch')}>Learn Server Side Data Fetch API </Button>
         <Button onClick={()=> navLink('/Learn-Static-Site-Generation-(SSG)')}>Learn-Static-Site-Generation-(SSG)</Button>
+        <Button onClick={()=> navLink('/imageUse')}>Learn How we use IMG </Button>
 
       </div>
 
