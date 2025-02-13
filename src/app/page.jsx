@@ -28,6 +28,7 @@ export default function Home() {
         <Button onClick={()=> navLink('/Learn-Static-Site-Generation-(SSG)')}>Learn-Static-Site-Generation-(SSG)</Button>
         <Button onClick={()=> navLink('/imageUse')}>Learn How we use IMG </Button>
         <Button onClick={()=> navLink('/font-optomization')}>Learn font optomization </Button>
+        <Button onClick={()=> navLink('/development-production')}>Learn about Development and Production </Button>
 
       </div>
 
