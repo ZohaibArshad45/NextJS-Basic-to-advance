@@ -23,9 +23,7 @@ const DynamicMetaData = () => {
 }
 export default DynamicMetaData
 
-
-
-export function generateMetdata() {
+export function generateMetadata() {  // ✅ Fix: Correct spelling
     return {
         title: "My first Project",
         description: " this is description"
