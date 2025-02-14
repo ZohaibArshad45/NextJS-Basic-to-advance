@@ -29,6 +29,7 @@ export default function Home() {
         <Button onClick={()=> navLink('/imageUse')}>Learn How we use IMG </Button>
         <Button onClick={()=> navLink('/font-optomization')}>Learn font optomization </Button>
         <Button onClick={()=> navLink('/development-production')}>Learn about Development and Production </Button>
+        <Button onClick={()=> navLink('/dynamic-metadata')}>Learn Dynamic Metadata </Button>
 
       </div>
 
