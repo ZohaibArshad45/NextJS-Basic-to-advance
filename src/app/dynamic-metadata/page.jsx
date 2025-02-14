@@ -18,13 +18,11 @@ const DynamicMetaData = () => {
                 3️⃣ Next.js automatically applies it** to the page header. <br />
                 4️⃣ No need for `title` tags inside JSX!
             </pre>
-
-
         </div>
     )
 }
-
 export default DynamicMetaData
+
 
 
 export function generateMetdata() {
