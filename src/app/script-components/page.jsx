@@ -26,7 +26,7 @@ const ScriptComponents = () => {
 
             {/* ✅ Example: External Script from Public Folder */}
             {/* Place your script in the public folder (e.g., /public/myscript.js) */}
-            {/* <Script src="/myscript.js" strategy="afterInteractive" /> */}
+            <Script src="/myscript.js" strategy="afterInteractive" />
 
             {/* ✅ Example: Inline Script */}
             <Script
