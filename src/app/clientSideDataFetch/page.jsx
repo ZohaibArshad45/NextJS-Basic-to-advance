@@ -5,41 +5,52 @@ const ClientSideDataFetch = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        async function getuser() {
-            const urlData = await fetch('https://jsonplaceholder.typicode.com/users')
-            setData(await urlData.json())
-            // const newdata  =await Data.json()
-            // setposts(newdata)
+        async function getUser() {
+            try {
+                const response = await fetch('https://jsonplaceholder.typicode.com/users');
+                const users = await response.json();
+                setData(users);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
         }
-        getuser()
-    }), [] // Missing dependency array in useEffect() → Without [], the effect runs on every render, leading to an infinite loop.
+        getUser();
+    }, []); // ✅ Fixed missing square brackets in useEffect()
 
     return (
-        <div>
-            <h1>ClientSideDataFetch</h1>
-            <pre>
-                1) First we made it client side by 'use Client' <br />
-                2) import useState  <br />
-                3) useEffect == ek call back lata ha == <br />
-                    phr is ky andr ek function bana data Fetch krny ky lia <br />
-                4) phr next map use kr ky data Render kr lo <br /><br /><br />
-                
+        <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
+            <h1 className="text-3xl font-bold text-blue-600 mb-4">🌐 Client-Side Data Fetch</h1>
 
-            </pre>
-            {
-                data.map((user) => (
-                    <div key={user.id} className='bg-gray-700 mb-4'>
-                        <div>{user.username}</div>
-                        <div>{user.email}</div>
-                        <div>{user.address.street}</div>
-                    </div>
-                )
-                )
-            }
+            <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
+                <h2 className="text-xl font-semibold text-gray-800">✅ Steps to Fetch Data:</h2>
+                <pre className="text-gray-700 bg-gray-200 p-4 rounded-md mt-2 text-sm">
+                    1) First, make it client-side by using <code>'use client'</code>. <br />
+                    2) Import <code>useState</code> and <code>useEffect</code>. <br />
+                    3) Fetch data inside <code>useEffect()</code> using an async function. <br />
+                    4) Use <code>map()</code> to render data dynamically. <br />
+                </pre>
+            </div>
+
+            {/* Users List */}
+            <div className="mt-6 w-full max-w-3xl">
+                {data.length > 0 ? (
+                    data.map((user) => (
+                        <div key={user.id} className="bg-gray-700 text-white p-4 mb-4 rounded-lg shadow-md">
+                            <p className="text-lg font-semibold">👤 {user.username}</p>
+                            <p>📧 {user.email}</p>
+                            <p>🏠 {user.address.street}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p className="text-gray-500">Loading data...</p>
+                )}
+            </div>
         </div>
-    )
+    );
 }
-export default ClientSideDataFetch
+
+export default ClientSideDataFetch;
+
 
 // // ===========================================================
 // 'use client'

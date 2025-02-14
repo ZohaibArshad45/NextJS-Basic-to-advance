@@ -1,58 +1,56 @@
-// // Two Type of Pre-rendering 
-// // 1 =>Server Side (jb call krty ha (mean jb click krty tb html ma convert hota h)
-// // 2 =>Static Side (call huny sy phly hi (file html ma convert ho kr rakh di jati ha, is lia fast load hota hain )
-// // build banty waqt
-// // SEO, Fast loading => Static Side Generation
-
+// // 📌 Static Site Generation (SSG) Example in Next.js
 // import React from 'react'
-// import getDataAPI from '../../../services/page'
+// import getDataAPI from '../../../services/page' // ✅ Ensure this function correctly fetches data
 // import Link from 'next/link'
 
 // const StaticSiteGeneration = async () => {
-//     const data = await getDataAPI() // getDataAPI function hum ny servers (Src sy baher) ma banaya howa ha
+//     try {
+//         const data = await getDataAPI(); // ✅ Fetch data at build time
 
-//     return (
-//         <>
-//             <h1>Learn Static Site Generation (SSG) API</h1>
+//         return (
+//             <>
+//                 <h1 className="text-2xl font-bold">🚀 Learn Static Site Generation (SSG) API</h1>
 
-//             <pre>
-//             // Two Type of Pre-rendering 
-//             // 1) Server Side (jb call krty ha (mean jb click krty tb html ma convert hota h)
-//             // 2) Static Side (call huny sy phly hi (file html ma convert ho kr rakh di jati ha, is lia fast load hota hain )
-//             // build banty waqt
-//             // SEO, Fast loading = Static Side Generation
-//             </pre>
+//                 <pre className="bg-gray-900 text-white p-4 rounded-md text-sm">
+// {`
+// 📌 Two Types of Pre-Rendering:
+// 1️⃣ Server-Side Rendering (SSR) → Generates HTML when a request is made.
+// 2️⃣ Static Site Generation (SSG) → Pre-renders HTML at build time (Fast & SEO-friendly).
+// `}
+//                 </pre>
 
-
-//             {/* {
-//       data.map((user) => (
-//         <li key={user.id}>{user.name}</li>
-//       ))
-//     } */}
-
-
-//             {
-//                 data.map((user, i) => (
-//                     <h1 key={i}>
-//                         <Link href={`Learn-Static-Site-Generation-(SSG)/${user.id}`} >{user.username}</Link>
-//                     </h1>
-//                 ))
-//             }
-
-
-//         </>
-//     )
+//                 {/* ✅ Display API Data */}
+//                 {data.length > 0 ? (
+//                     data.map((user) => (
+//                         <h2 key={user.id} className="text-lg font-semibold text-blue-500 mt-2">
+//                             <Link href={`/Learn-Static-Site-Generation/${user.id}`}>
+//                                 {user.username}
+//                             </Link>
+//                         </h2>
+//                     ))
+//                 ) : (
+//                     <p className="text-red-500">⚠️ No data available!</p>
+//                 )}
+//             </>
+//         )
+//     } catch (error) {
+//         console.error("❌ Error fetching data:", error)
+//         return <p className="text-red-500">❌ Failed to load data. Please try again later.</p>
+//     }
 // }
 
 // export default StaticSiteGeneration
 
 
+// =====================================================
 import React from 'react'
 
-const badmabanahai = () => {
+const ComingSoon = () => {
   return (
-    <div>badmabanahai</div>
+    <div className="text-center text-gray-700 text-xl font-semibold">
+      🚧 Page Under Construction 🚧
+    </div>
   )
 }
 
-export default badmabanahai
+export default ComingSoon

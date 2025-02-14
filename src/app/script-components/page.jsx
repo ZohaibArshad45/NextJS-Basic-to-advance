@@ -4,18 +4,19 @@ import Script from "next/script";
 
 const ScriptComponents = () => {
     return (
-        <div>
-            <h1>🚀 Next.js Script Component</h1>
-            <h2>📌 Using External Libraries Efficiently</h2>
+        <div className="p-6 bg-gray-100 min-h-screen flex flex-col items-center">
+            <h1 className="text-3xl font-bold text-blue-600">🚀 Next.js Script Component</h1>
+            <h2 className="text-xl text-gray-700 mt-2">📌 Using External Libraries Efficiently</h2>
 
-            <pre>
-                ✅ Benefits of Next.js Script Component: <br />
-                ✔ Improves Performance – Loads scripts efficiently. <br />
-                ✔ SEO Friendly – Ensures search engines can index content properly. <br />
-                ✔ Execution Control – Load scripts at the right time. <br />
-                ✔ Prevents Render Blocking – Ensures faster page loads.
-            </pre>
-            <br /><br />
+            <div className="mt-4 p-4 bg-white rounded-lg shadow-md w-full max-w-2xl">
+                <h3 className="text-lg font-semibold">✅ Benefits of Next.js Script Component:</h3>
+                <ul className="list-disc list-inside text-gray-800 mt-2">
+                    <li>✔ <strong>Improves Performance</strong> – Loads scripts efficiently.</li>
+                    <li>✔ <strong>SEO Friendly</strong> – Ensures search engines can index content properly.</li>
+                    <li>✔ <strong>Execution Control</strong> – Load scripts at the right time.</li>
+                    <li>✔ <strong>Prevents Render Blocking</strong> – Ensures faster page loads.</li>
+                </ul>
+            </div>
 
             {/* ✅ Example: External Script (Lazy Load) */}
             <Script
@@ -25,7 +26,6 @@ const ScriptComponents = () => {
             />
 
             {/* ✅ Example: External Script from Public Folder */}
-            {/* Place your script in the public folder (e.g., /public/myscript.js) */}
             <Script src="/myscript.js" strategy="afterInteractive" />
 
             {/* ✅ Example: Inline Script */}
@@ -37,20 +37,23 @@ const ScriptComponents = () => {
                 }}
             />
 
-            <h2>📌 Available Strategies in the Script Component</h2>
-            <pre>
-                - 🟢 beforeInteractive → Loads before hydration (for critical scripts). <br />
-                - 🟡 afterInteractive → Loads after hydration (default, recommended). <br />
-                - 🔵 lazyOnload → Loads when the page is idle (best for performance).
-            </pre>
-            <br /><br />
+            <div className="mt-6 p-4 bg-white rounded-lg shadow-md w-full max-w-2xl">
+                <h3 className="text-lg font-semibold">📌 Available Strategies in the Script Component</h3>
+                <ul className="list-disc list-inside text-gray-800 mt-2">
+                    <li>🟢 <strong>beforeInteractive</strong> → Loads before hydration (for critical scripts).</li>
+                    <li>🟡 <strong>afterInteractive</strong> → Loads after hydration (default, recommended).</li>
+                    <li>🔵 <strong>lazyOnload</strong> → Loads when the page is idle (best for performance).</li>
+                </ul>
+            </div>
 
-            <h2>📌 Best Use Cases for Next.js Script Component</h2>
-            <pre>
-                ✔ Google Analytics, Facebook Pixel, Ads, and Tracking Scripts. <br />
-                ✔ External JS libraries like jQuery, Chart.js, or third-party widgets. <br />
-                ✔ Custom scripts stored in the Public folder (local script files).
-            </pre>
+            <div className="mt-6 p-4 bg-white rounded-lg shadow-md w-full max-w-2xl">
+                <h3 className="text-lg font-semibold">📌 Best Use Cases for Next.js Script Component</h3>
+                <ul className="list-disc list-inside text-gray-800 mt-2">
+                    <li>✔ Google Analytics, Facebook Pixel, Ads, and Tracking Scripts.</li>
+                    <li>✔ External JS libraries like jQuery, Chart.js, or third-party widgets.</li>
+                    <li>✔ Custom scripts stored in the <code>/public</code> folder (local script files).</li>
+                </ul>
+            </div>
         </div>
     );
 };

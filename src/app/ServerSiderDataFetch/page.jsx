@@ -1,33 +1,43 @@
-import React from 'react'
-import Btn from './btn'
+import React from 'react';
+import Btn from './btn';
 
-let getData = async function(){
-  let data = await fetch('https://jsonplaceholder.typicode.com/comments')
-  let currectData = await data.json()
-  return currectData
-}
+// Server-side function to fetch data
+const getData = async () => {
+  try {
+    let response = await fetch('https://jsonplaceholder.typicode.com/comments');
+    if (!response.ok) throw new Error('Failed to fetch data');
+    
+    let jsonData = await response.json();
+    return jsonData;
+  } catch (error) {
+    console.error('❌ Error fetching data:', error);
+    return []; // Return empty array to avoid breaking map()
+  }
+};
 
-const ServerSideDataFetch = async() => {
-    let mainData = await getData()
+const ServerSideDataFetch = async () => {
+  let mainData = await getData();
 
   return (
-    <div>
-      <h1>Server Side Data Fetch</h1>
-      
-      {
-        mainData.map((user)=>(
-          <div key={user.id} className='bg-gray-700 mb-3 p-3'>
-            <h1 className='text-blue-300 font-bold'>{user.id} {user.name}</h1>
-            <h1>{user.body}</h1>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold text-blue-500 mb-4">Server-Side Data Fetching</h1>
 
-            {/* <Btn data = {user.body}/> // if we want to add button onclick effect, we need make it server side but this is server side data fetch, so we make any file btn and add her refence
-            // we can use both server side and client side like this  */}
+      {mainData.length === 0 ? (
+        <p className="text-red-500">⚠ No data available. Please try again later.</p>
+      ) : (
+        mainData.slice(0, 10).map((user) => ( // Limiting data to 10 items for better UI
+          <div key={user.id} className="bg-gray-800 text-white p-4 mb-3 rounded-lg shadow-lg">
+            <h1 className="text-yellow-400 font-semibold">{user.id}. {user.name}</h1>
+            {/* <p className="text-gray-300">{user.body}</p> */}
+
+            {/* Client-Side Interactive Button */}
+            <Btn data={user.body} />
             
           </div>
         ))
-      }
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default ServerSideDataFetch
+export default ServerSideDataFetch;
