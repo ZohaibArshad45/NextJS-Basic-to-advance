@@ -18,6 +18,14 @@ export default function Home() {
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-3xl">
+        <Button asChild className="bg-yellow-500 hover:bg-yellow-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+          <Link href="/waiting">React vs Next JS</Link>
+        </Button>
+
+        <Button asChild className="bg-pink-500 hover:bg-pink-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+          <Link href="/waiting">How we Start</Link>
+        </Button>
+
         <Button asChild className="bg-blue-500 hover:bg-blue-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           <Link href="/learnEventFunctionStates">Learn Event & State</Link>
         </Button>
