@@ -79,8 +79,8 @@ export default function Home() {
           Loader | Show loading
         </Button>
 
-        <Button onClick={() => navLink('/Learn-Static-Site-Generation-(SSG)')} className="bg-pink-500 hover:bg-pink-700 text-white py-3 px-6 rounded-lg shadow-md transition">
-          Static Site Generation (SSG)
+        <Button onClick={() => navLink('/Static-Assets')} className="bg-pink-500 hover:bg-pink-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+        Static-Assets
         </Button>
 
       </div>

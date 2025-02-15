@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const StaticSiteGeneration = () => {
+const StaticAssets = () => {
   const codeString = `
   import Image from 'next/image';
   import React from 'react';
@@ -84,4 +84,4 @@ const StaticSiteGeneration = () => {
   );
 };
 
-export default StaticSiteGeneration;
+export default StaticAssets;
