@@ -1,83 +1,103 @@
-'use client'
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") || "light";
+    }
+    return "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
-    // <nav className="fixed top-0 w-full bg-gray-100 shadow-md z-50">
-    <nav className=" top-0 w-full bg-gray-200 shadow-md z-50">
-      <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex  justify-between items-center py-4">
-          {/* Logo or Brand */}
-          {/* <div className="text-xl font-bold text-blue-600">NEXT JS</div> */}
-          <Link href="/">
-          <div className="text-xl font-bold text-blue-600">NEXT JS</div>
-          </Link>
+    <nav className="fixed top-0 left-0 w-full bg-gray-200 dark:bg-gray-900 shadow-md z-50 transition-all">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+        
+        {/* Logo on Left */}
+        <Link href="/">
+          <span className="text-xl font-bold text-blue-600 dark:text-white cursor-pointer">
+            NEXT JS
+          </span>
+        </Link>
 
+        {/* Right Side - Menu & Theme Toggle */}
+        <div className="flex items-center space-x-6">
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
-            <Link href="/">
-              <Button className="bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg shadow transition">
-                🏠 Home
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button className="bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg shadow transition">
-                About
-              </Button>
-            </Link>
-            <Link href="/waiting">
-              <Button className="bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg shadow transition">
-                Team
-              </Button>
-            </Link>
-            <Link href="/waiting">
-              <Button className="bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg shadow transition">
-                Contact
-              </Button>
-            </Link>
+            {["Home", "About", "Team", "Contact"].map((item) => (
+              <Link key={item} href={`/${item.toLowerCase()}`}>
+                <span className="relative cursor-pointer text-gray-700 dark:text-white font-medium transition-all after:block after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all hover:after:w-full">
+                  {item}
+                </span>
+              </Link>
+            ))}
           </div>
 
+          {/* Theme Toggle Button */}
+          <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="text-blue-600 dark:text-yellow-400 focus:outline-none"
+          >
+            {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
+          </button>
+
           {/* Mobile Menu Button */}
-          <div className="md:hidden ">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-blue-600 ">
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-blue-600 dark:text-white focus:outline-none"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="flex flex-col bg-gray-100 items-center space-y-3 py-4 ">
-            <Link href="/" onClick={() => setIsOpen(false)}>
-              <Button className="w-full bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg transition">
-                🏠 Home
-              </Button>
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`md:hidden fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={() => setIsOpen(false)}
+      ></div>
+
+      {/* Mobile Sidebar (Slide from Right) */}
+      <div
+        className={`fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-800 shadow-lg transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform`}
+      >
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 text-gray-600 dark:text-white"
+        >
+          <X size={28} />
+        </button>
+
+        <div className="flex flex-col items-start space-y-6 px-6 py-20">
+          {["Home", "About", "Team", "Contact"].map((item) => (
+            <Link key={item} href={`/${item.toLowerCase()}`} onClick={() => setIsOpen(false)}>
+              <span className="relative cursor-pointer text-gray-700 dark:text-white font-medium transition-all after:block after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all hover:after:w-full">
+                {item}
+              </span>
             </Link>
-            <Link href="/about" onClick={() => setIsOpen(false)}>
-              <Button className="w-full bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg transition">
-                About
-              </Button>
-            </Link>
-            <Link href="/waiting" onClick={() => setIsOpen(false)}>
-              <Button className="w-full bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg transition">
-                Team
-              </Button>
-            </Link>
-            <Link href="/waiting" onClick={() => setIsOpen(false)}>
-              <Button className="w-full bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg transition">
-                Contact
-              </Button>
-            </Link>
-          </div>
+          ))}
+
+          {/* Theme Toggle for Mobile */}
+          <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="text-blue-600 dark:text-yellow-400 mt-4"
+          >
+            {theme === "light" ? <Moon size={28} /> : <Sun size={28} />}
+          </button>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
