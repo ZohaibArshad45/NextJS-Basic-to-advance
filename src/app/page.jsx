@@ -83,6 +83,10 @@ export default function Home() {
         Static-Assets
         </Button>
 
+        <Button onClick={() => navLink('/static-html-page')} className="bg-yellow-800 hover:bg-yellow-600 text-white py-3 px-6 rounded-lg shadow-md transition">
+        Static Html Page
+        </Button>
+
       </div>
     </div>
   );
