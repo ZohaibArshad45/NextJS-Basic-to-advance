@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const StaticAssets = () => {
+
   const codeString = `
   import Image from 'next/image';
   import React from 'react';
