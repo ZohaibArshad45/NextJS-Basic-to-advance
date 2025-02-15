@@ -50,19 +50,19 @@ export default function Home() {
           Client-Side API Fetch
         </Button>
 
-        <Button onClick={() => router.push('/ServerSiderDataFetch')} className="bg-indigo-500 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+        <Button onClick={() => navLink('/ServerSiderDataFetch')} className="bg-indigo-500 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           Server-Side API Fetch
         </Button>
 
-        <Button onClick={() => router.push('/Learn-Static-Site-Generation-(SSG)')} className="bg-pink-500 hover:bg-pink-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+        <Button onClick={() => navLink('/Learn-Static-Site-Generation-(SSG)')} className="bg-pink-500 hover:bg-pink-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           Static Site Generation (SSG)
         </Button>
 
-        <Button onClick={() => router.push('/imageUse')} className="bg-cyan-500 hover:bg-cyan-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+        <Button onClick={() => navLink('/imageUse')} className="bg-cyan-500 hover:bg-cyan-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           Image Optimization
         </Button>
 
-        <Button onClick={() => router.push('/font-optomization')} className="bg-lime-500 hover:bg-lime-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+        <Button onClick={() => navLink('/font-optomization')} className="bg-lime-500 hover:bg-lime-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           Font Optimization
         </Button>
 
@@ -76,6 +76,9 @@ export default function Home() {
 
         <Button onClick={() => navLink('/script-components')} className="bg-emerald-500 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           Script Components
+        </Button>
+        <Button onClick={() => navLink('/loader-withAPI')} className="bg-blue-700 hover:bg-blue-500 text-white py-3 px-6 rounded-lg shadow-md transition">
+          Loader | Show loading
         </Button>
       </div>
     </div>
