@@ -54,9 +54,6 @@ export default function Home() {
           Server-Side API Fetch
         </Button>
 
-        <Button onClick={() => navLink('/Learn-Static-Site-Generation-(SSG)')} className="bg-pink-500 hover:bg-pink-700 text-white py-3 px-6 rounded-lg shadow-md transition">
-          Static Site Generation (SSG)
-        </Button>
 
         <Button onClick={() => navLink('/imageUse')} className="bg-cyan-500 hover:bg-cyan-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           Image Optimization
@@ -77,9 +74,15 @@ export default function Home() {
         <Button onClick={() => navLink('/script-components')} className="bg-emerald-500 hover:bg-emerald-700 text-white py-3 px-6 rounded-lg shadow-md transition">
           Script Components
         </Button>
+
         <Button onClick={() => navLink('/loader-withAPI')} className="bg-blue-700 hover:bg-blue-500 text-white py-3 px-6 rounded-lg shadow-md transition">
           Loader | Show loading
         </Button>
+
+        <Button onClick={() => navLink('/Learn-Static-Site-Generation-(SSG)')} className="bg-pink-500 hover:bg-pink-700 text-white py-3 px-6 rounded-lg shadow-md transition">
+          Static Site Generation (SSG)
+        </Button>
+
       </div>
     </div>
   );

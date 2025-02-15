@@ -1,56 +1,54 @@
-// // 📌 Static Site Generation (SSG) Example in Next.js
-// import React from 'react'
-// import getDataAPI from '../../../services/page' // ✅ Ensure this function correctly fetches data
-// import Link from 'next/link'
-
-// const StaticSiteGeneration = async () => {
-//     try {
-//         const data = await getDataAPI(); // ✅ Fetch data at build time
-
-//         return (
-//             <>
-//                 <h1 className="text-2xl font-bold">🚀 Learn Static Site Generation (SSG) API</h1>
-
-//                 <pre className="bg-gray-900 text-white p-4 rounded-md text-sm">
-// {`
-// 📌 Two Types of Pre-Rendering:
-// 1️⃣ Server-Side Rendering (SSR) → Generates HTML when a request is made.
-// 2️⃣ Static Site Generation (SSG) → Pre-renders HTML at build time (Fast & SEO-friendly).
-// `}
-//                 </pre>
-
-//                 {/* ✅ Display API Data */}
-//                 {data.length > 0 ? (
-//                     data.map((user) => (
-//                         <h2 key={user.id} className="text-lg font-semibold text-blue-500 mt-2">
-//                             <Link href={`/Learn-Static-Site-Generation/${user.id}`}>
-//                                 {user.username}
-//                             </Link>
-//                         </h2>
-//                     ))
-//                 ) : (
-//                     <p className="text-red-500">⚠️ No data available!</p>
-//                 )}
-//             </>
-//         )
-//     } catch (error) {
-//         console.error("❌ Error fetching data:", error)
-//         return <p className="text-red-500">❌ Failed to load data. Please try again later.</p>
-//     }
-// }
-
-// export default StaticSiteGeneration
-
-
-// =====================================================
+import Image from 'next/image'
 import React from 'react'
 
-const ComingSoon = () => {
+const StaticSiteGeneration = () => {
   return (
-    <div className="text-center text-gray-700 text-xl font-semibold">
-      🚧 Page Under Construction 🚧
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">
+      <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+        Everything in the public folder is a static file. <br />
+        We don’t need to write "public" in the path.
+      </h1>
+
+      {/* ✅ Explanation about CSS & Scripts in Public Folder */}
+      <p className="mt-6 text-gray-700 text-center max-w-lg">
+        In the public folder, we can also store **CSS files and JavaScript files**.
+        To include them in **Next.js**, we can link them inside the `Head component
+        in `layout.js` or any page.
+      </p>
+      <br />
+
+      {/* ✅ Benefits & Drawbacks Section */}
+      <div className="max-w-2xl bg-white p-4 shadow-md rounded-md">
+        <h2 className="text-lg font-semibold text-blue-600 mb-2">✅ Benefits of the Public Folder:</h2>
+        <ul className="list-disc ml-5 text-gray-700">
+          <li>🔹 Stores static assets like images, styles, and scripts.</li>
+          <li>🔹 No need to import files in Next.js, just use direct paths.</li>
+          <li>🔹 Faster loading since assets are served as-is (no processing by Webpack).</li>
+        </ul>
+
+        <h2 className="text-lg font-semibold text-red-600 mt-4 mb-2">❌ Drawbacks of the Public Folder:</h2>
+        <ul className="list-disc ml-5 text-gray-700">
+          <li>⚠️ Files are not optimized (unlike `next/image`, which optimizes images automatically).</li>
+          <li>⚠️ Public files cannot be imported as modules (e.g., `import` won’t work).</li>
+          <li>⚠️ If a file is large, it can slow down page load since it's served directly.</li>
+        </ul>
+      </div>
+      {/* 🔹 Optimized Image */}
+      <div className="mt-6">
+        <p className="mt-4 text-gray-600">
+          This image is served directly from the public folder.
+        </p>
+        <Image
+          src="/man.png" // Image inside the "public" folder
+          alt="Illustration of a person"
+          width={300}
+          height={300}
+          priority={true} // Loads image faster
+          className="rounded-lg shadow-md"
+        />
+      </div>
     </div>
   )
 }
 
-export default ComingSoon
+export default StaticSiteGeneration
